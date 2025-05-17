@@ -1,0 +1,89 @@
+:root {
+  --gold: #FFD700; 
+  --corner-length: 100px; 
+  --corner-thickness: 3px; 
+  --corner-offset: 15px; 
+
+.image-frame {
+  position: relative; 
+  display: inline-block; 
+  padding: var(--corner-offset); 
+ 
+}
+
+.image-frame img {
+  display: block; 
+  max-width: 100%; 
+  height: auto;
+ 
+}
+
+.image-frame::before,
+.image-frame::after,
+.image-frame .corners-helper::before,
+.image-frame .corners-helper::after {
+  content: '';
+  position: absolute;
+  width: var(--corner-length);
+  height: var(--corner-length);
+  border-color: var(--gold);
+  border-style: solid;
+ 
+  border-width: 0;
+}
+
+
+.image-frame::before {
+  top: 0; 
+  left: 0; 
+  border-top-width: var(--corner-thickness);
+  border-left-width: var(--corner-thickness);
+}
+
+
+.image-frame::after {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: var(--corner-thickness);
+  border-right-width: var(--corner-thickness);
+}
+
+
+.image-frame .corners-helper::before {
+  top: 0;
+  right: 0;
+  border-top-width: var(--corner-thickness);
+  border-right-width: var(--corner-thickness);
+}
+
+
+.image-frame .corners-helper::after {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: var(--corner-thickness);
+  border-left-width: var(--corner-thickness);
+}
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e0e0e0;
+}
+.image-frame img[src="gruener-apfel-getrennt-auf-weiss_2829-9403.avif"] { 
+    width: 250px;
+    height: 250px;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: navy;
+    font-family: sans-serif;
+}
+.image-frame img[src="gruener-apfel-getrennt-auf-weiss_2829-9403.avif"]::after { 
+    content: 'Image Placeholder';
+}
+
+}
